@@ -1,0 +1,6 @@
+aerostack2_ws/build/
+aerostack2_ws/install/
+aerostack2_ws/log/
+**/__pycache__/
+*.pyc
+.DS_Store

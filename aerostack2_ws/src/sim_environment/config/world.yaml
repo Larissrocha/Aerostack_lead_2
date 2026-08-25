@@ -1,0 +1,37 @@
+world_name: default
+origin:
+  latitude: -22.8627458
+  longitude: -43.2297722
+  altitude: 2
+drones:
+- model_type: "x500"
+  model_name: "x500_px4"
+  flight_time: 60
+  xyz:
+  - 0.0
+  - 0.0
+  - 0.3
+  payload:
+  - model_type: "gps"
+    model_name: "gps"
+  - model_type: "hd_camera"
+    model_name: "hd_camera"
+    xyz:
+      - 0.043
+      - 0.0
+      - -0.035
+    rpy:
+      - 0.0
+      - 1.5707
+      - 0.0
+objects:
+- model_name: "ariel_marker"
+  model_type: "ariel_marker"
+  rpy:
+  - 0.0
+  - 0.0
+  - 0.98
+  xyz:
+  - 2.9
+  - -2.9
+  - 0.02

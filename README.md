@@ -53,6 +53,8 @@ Com o container rodando em background, entre no terminal dele como usuário `dev
 docker start meu_container_aerostack
 
 docker exec -it -u developer aerostack_lead /bin/bash
+
+docker exec -it -u developer aerostack_lead_2 /bin/bash
 ```
 
 ### 5. Compilação Segura do Workspace (Evitando Travamentos)

@@ -90,7 +90,7 @@ export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/home/developer/aerostack2_ws/
 Rodar
 ```bash
 
-cd src/project_landing-tcc_lucca/
+cd /home/developer/aerostack2_ws/src/sim_environment
 ./launch_sim.bash
 ```
 ---

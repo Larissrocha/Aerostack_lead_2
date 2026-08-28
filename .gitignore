@@ -4,3 +4,6 @@ aerostack2_ws/log/
 **/__pycache__/
 *.pyc
 .DS_Store
+build/
+install/
+log/

@@ -7,7 +7,7 @@ detecção de ArUco ou LiDAR -- serve só para confirmar que a camada
 Aerostack2 <-> PX4 está respondendo a comandos básicos de voo.
 
 Como rodar (dentro do container, com a simulação já aberta):
-    cd ~/aerostack2_ws/src/aerostack2_ws/src/project_landing-tcc_lucca
+    cd ~/aerostack2_ws/src/aerostack2_ws/src/sim_environment
     python3 missao_simples.py
 """
 

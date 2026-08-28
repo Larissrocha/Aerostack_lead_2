@@ -10,6 +10,7 @@ services:
     network_mode: host
     ipc: host
     pid: host
+    entrypoint: ["/bin/bash", "-c", "sleep infinity"]
     environment:
     - DISPLAY=${DISPLAY}
     - QT_X11_NO_MITSHM=1

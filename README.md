@@ -22,7 +22,7 @@ Antes de começar, certifique-se de ter instalado no seu computador físico (Ubu
 ### 1. Clonar o Repositório
 Clonar repositório:
 ```bash
-git clone <git@github.com:Larissrocha/Aerostack_lead.gitI>
+git clone <git@github.com:Larissrocha/Aerostack_lead_2.git>
 cd Aerostack_lead
 
 ```
@@ -50,10 +50,6 @@ docker compose up -d --build
 Com o container rodando em background, entre no terminal dele como usuário `developer`:
 
 ```bash
-docker start meu_container_aerostack
-
-docker exec -it -u developer aerostack_lead /bin/bash
-
 docker exec -it -u developer aerostack_lead_2 /bin/bash
 ```
 
@@ -99,15 +95,14 @@ cd /home/developer/aerostack2_ws/src/sim_environment
 
 | Objetivo | Comando | Onde Executar |
 | --- | --- | --- |
-|Fecha o tmux e encerra todos os nós em segundo plano|tmux kill-server
-|Garante que o processo do Gazebo não ficou fantasma|pkill -f gz
+| Fecha o tmux e encerra todos os nós em segundo plano|tmux kill-server
+| Garante que o processo do Gazebo não ficou fantasma|pkill -f gz
 | Liberar tela para o Docker | `xhost +local:docker` | Máquina Física |
 | Lançar/Atualizar o Container | `docker compose up -d --build` | Máquina Física (raiz) |
 | Entrar no Container | `docker exec -it meu_container_aerostack /bin/bash` | Máquina Física |
 | Compilar Código C++ com segurança | `colcon build --symlink-install --parallel-workers 1` | Dentro do Docker |
 | Derrubar o container completamente | `docker compose down` | Máquina Física |
-|                                    | `docker compose exec -u developer aerostack2 bash `|
-||`pkill -9 -f gz `|
+| Forçar sair do Gazebo |`pkill -9 -f gz `|
 
 
 ---

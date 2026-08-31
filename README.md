@@ -1,4 +1,4 @@
-```markdown
+
 # Aerostack LEAD 2 - Ambiente de Simulação
 
 Ambiente de simulação para desenvolvimento e validação de algoritmos de controle de voo e missões autônomas utilizando **ROS 2 Humble**, **PX4 SITL**, **Gazebo** e **Aerostack2**.

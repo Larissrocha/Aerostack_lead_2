@@ -139,7 +139,7 @@ Aerostack_lead_2/
         │
         ├── lead_missions/            # Pacote customizado do usuário para criação de missões
         │   ├── lead_missions/
-        │   │   ├── mission_base.py  # Classe base com gerenciador de contexto (arm, takeoff, hover, land)
+        │   │   ├── base_mission.py  # Classe base com gerenciador de contexto (arm, takeoff, hover, land)
         │   │   └── simple_mission.py# Script executável de missão sequencial
         │   ├── package.xml          # Declaração de dependências ROS 2 (rclpy, as2_msgs, std_srvs)
         │   └── setup.py             # Registro de entry points e executáveis de terminal

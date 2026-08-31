@@ -116,8 +116,62 @@ source install/setup.bash
 ros2 run lead_missions simple_mission
 
 ```
+---
+
+## Estrutura do Projeto e Organização de Pastas
+
+Abaixo está o detalhamento de cada diretório e componente do repositório:
+
+```text
+Aerostack_lead_2/
+├── docker/
+│   └── Dockerfile                   # Receita de build do container com ROS 2, PX4 SITL e Micro-XRCE-Agent
+├── docker-compose.yml               # Configurações de volumes, portas e permissões gráficas do Docker
+├── README.md                        # Documentação técnica do ambiente
+└── aerostack2_ws/
+    └── src/
+        ├── sim_environment/          # Pacote de orquestração do cenário de simulação
+        │   ├── config/              # Parâmetros de mundo, drones e sensores (.yaml)
+        │   ├── models/              # Modelos 3D e descrições físicas SDF/Jinja específicos do projeto
+        │   ├── tmuxinator/          # Configuração de sessões e inicialização em abas do terminal
+        │   ├── utils/               # Scripts auxiliares de leitura de parâmetros e spawn
+        │   └── launch_sim.bash      # Script principal de inicialização da simulação
+        │
+        ├── lead_missions/            # Pacote customizado do usuário para criação de missões
+        │   ├── lead_missions/
+        │   │   ├── mission_base.py  # Classe base com gerenciador de contexto (arm, takeoff, hover, land)
+        │   │   └── simple_mission.py# Script executável de missão sequencial
+        │   ├── package.xml          # Declaração de dependências ROS 2 (rclpy, as2_msgs, std_srvs)
+        │   └── setup.py             # Registro de entry points e executáveis de terminal
+        │
+        └── aerostack2/               # Framework base do Aerostack2 (Core, Bridges e Modelos)
+            ├── as2_core/            # Bibliotecas C++ e utilitários centrais de arquitetura
+            ├── as2_msgs/            # Definições de interfaces nativas (msgs, srvs e actions)
+            ├── as2_python_api/      # Módulo Python com classes de controle e telemetria de alto nível
+            └── as2_simulation_assets/
+                └── as2_gazebo_assets/
+                    ├── CMakeLists.txt # Regras de compilação das pontes em C++
+                    ├── launch/        # Launchfiles Python para o Gazebo e pontes de sensores
+                    ├── models/        # Modelos de drones e sensores suportados (ex: x500_px4, quadrotor_base)
+                    ├── src/           # Código-fonte C++ das pontes (gps_bridge, ground_truth, etc.)
+                    └── worlds/        # Arquivos de descrição de mundo e física padrão (.sdf.jinja)
+
+```
+
+### Detalhamento dos Componentes Principais
+
+* **`docker/` e `docker-compose.yml**`: Isolam todo o ecossistema de software de voo (ROS 2 Humble, compilador PX4 e dependências) sem poluir o sistema operacional da máquina física.
+* **`sim_environment/`**: Concentra as definições físicas do mundo, modelos de sensores e o orquestrador `launch_sim.bash`, que inicializa simultaneamente a física do Gazebo, o PX4 SITL e as pontes de comunicação.
 
 
+* **`lead_missions/`**: Área limpa de desenvolvimento do usuário. Contém os nós em Python responsáveis por interagir com os tópicos e ações dos comportamentos do drone.
+* **`aerostack2/`**: Estrutura contendo o núcleo de comunicação, dicionários de mensagens (`as2_msgs`), utilitários Python (`as2_python_api`) e os assets e bridges de simulação para o Gazebo (`as2_gazebo_assets`).
+
+
+
+```
+
+```
 
 ---
 

@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'simple_mission = lead_missions.simple_mission:main',
+            'aruco_mission = lead_missions.aruco_mission:main',
         ],
     },
 )
